@@ -1,0 +1,27 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/jenkins/jenkins.log
+    - /var/lib/jenkins/jobs/*/builds/*/log
+  fields:
+    name: myindex
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+setup.template.settings:
+  index.number_of_shards: 1
+setup.kibana:
+  host: "34.66.137.5:5601"
+output.elasticsearch:
+  hosts: ["34.66.137.5:9200"]
+  protocol: "http"
+  index: "%{[fields.name]}-%{+yyyy.MM.dd}"
+setup.template:
+  name: '%{name}'
+  pattern: '%{name}-*'
+  enabled: false
+#processors:
+#  - add_host_metadata: ~
+#  - add_cloud_metadata: ~
+setup.ilm.enabled: false
