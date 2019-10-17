@@ -15,8 +15,8 @@ setup.kibana:
 output.elasticsearch:
   hosts: ["35.226.32.214:9200"]
   protocol: "http"
-  username: {{username}}
-  password: {{password}}
+  username: "{{username}}"
+  password: "{{password}}"
   index: "%{[fields.name]}-%{+yyyy.MM.dd}"
 setup.template:
   name: '%{name}'
