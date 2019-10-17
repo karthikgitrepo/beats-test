@@ -11,9 +11,9 @@ filebeat.config.modules:
 setup.template.settings:
   index.number_of_shards: 1
 setup.kibana:
-  host: "34.66.137.5:5601"
+  host: "35.226.32.214:5601"
 output.elasticsearch:
-  hosts: ["34.66.137.5:9200"]
+  hosts: ["35.226.32.214:9200"]
   protocol: "http"
   index: "%{[fields.name]}-%{+yyyy.MM.dd}"
 setup.template:
