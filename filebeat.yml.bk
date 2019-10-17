@@ -3,7 +3,6 @@ filebeat.inputs:
   enabled: true
   paths:
     - /var/log/jenkins/jenkins.log
-    - /var/lib/jenkins/jobs/*/builds/*/log
   fields:
     name: {{indexname}}
 filebeat.config.modules:
